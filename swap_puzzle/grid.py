@@ -53,14 +53,23 @@ class Grid():
         """
         return f"<grid.Grid: m={self.m}, n={self.n}>"
 
-    def is_sorted(self):
+    def is_sorted(self, m, n, state):
         """
-        Checks is the current state of the grid is sorte and returns the answer as a boolean.
+        Checks is the current state of the grid is sorted and returns the answer as a boolean.
         """
+        nbr_bonnes_cases= 0
+        for i in range (m):
+            for j in range (n):
+                if state[i][j]==n*i+j:
+                    nbr_bonnes_cases= nbr_bonnes_cases+1
+        if nbr_bonnes_cases == m*n:
+            return True
+                    
+
         # TODO: implement this function (and remove the line "raise NotImplementedError").
         raise NotImplementedError
 
-    def swap(self, cell1, cell2):
+    def swap(self, cell1, cell2, state):
         """
         Implements the swap operation between two cells. Raises an exception if the swap is not allowed.
 
@@ -69,6 +78,13 @@ class Grid():
         cell1, cell2: tuple[int]
             The two cells to swap. They must be in the format (i, j) where i is the line and j the column number of the cell. 
         """
+        nbr_ds_cell1 = state[cell1[0]][cell1[1]] 
+        state[cell1[0]][cell1[1]] = state[cell2[0]][cell2[1]]
+        state[cell2[0]][cell2[1]] = nbr_ds_cell1
+
+
+
+
         # TODO: implement this function (and remove the line "raise NotImplementedError").
         raise NotImplementedError
 
