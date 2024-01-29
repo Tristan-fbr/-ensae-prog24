@@ -20,6 +20,7 @@ class Graph:
         The number of edges. 
     edges: list[tuple[NodeType, NodeType]]
         The list of all edges
+        hey 
     """
 
     def __init__(self, nodes=[]):
